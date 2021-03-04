@@ -917,7 +917,7 @@ class Ui_MainWindow(object):
         self.btn_minimize.setToolTip(_translate("MainWindow", "Minimize"))
         self.btn_maximize_restore.setToolTip(_translate("MainWindow", "Maximize"))
         self.btn_close.setToolTip(_translate("MainWindow", "Close"))
-        self.label_top_info_2.setText(_translate("MainWindow", "| HOME"))
+        self.label_top_info_2.setText(_translate("MainWindow", "| NONE"))
         self.label_6.setText(_translate("MainWindow", "HOME"))
         self.edit_pass.setPlaceholderText(_translate("MainWindow", "Ваш пароль"))
         self.edit_login.setPlaceholderText(_translate("MainWindow", "Ваш логин"))

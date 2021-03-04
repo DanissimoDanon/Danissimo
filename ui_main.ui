@@ -1300,7 +1300,7 @@ QPushButton:pressed {
                    <string notr="true">color: rgb(98, 103, 111);</string>
                   </property>
                   <property name="text">
-                   <string>| HOME</string>
+                   <string>| NONE</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
