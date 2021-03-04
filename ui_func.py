@@ -75,12 +75,13 @@ class UIFunctions(object):
     def labelTitle(self, text):
         self.ui.label_title_bar_top.setText(text)
 
+    # LABEL DESCRIPTION
     def labelDescription(self, text):
         self.ui.label_top_info_1.setText(text)
 
     def addNewMenu(self, name, objName, icon, isTopMenu):
-        font = QFont()
-        font.setFamily(u"Segoe UI")
+        font = QFont('Segoe UI', 8)
+        font.setBold(True)
         button = QPushButton(str(count), self)
         button.setObjectName(objName)
         sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
@@ -125,7 +126,6 @@ class UIFunctions(object):
 
     def uiDefinitions(self):
         def dobleClickMaximizeRestore(event):
-            # IF DOUBLE CLICK CHANGE STATUS
             if event.type() == QtCore.QEvent.MouseButtonDblClick:
                 QtCore.QTimer.singleShot(250, lambda: UIFunctions.maximize_restore(self))
 

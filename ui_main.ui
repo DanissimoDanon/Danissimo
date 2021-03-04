@@ -546,7 +546,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>STUDY</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {background: transparent; }
@@ -1040,7 +1040,7 @@ background-repeat: no-repeat;
 </string>
                      </property>
                      <property name="text">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;STUDY - Дистанционное обучение&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      <string>STUDY - Дистанционное обучение</string>
                      </property>
                     </widget>
                    </item>
