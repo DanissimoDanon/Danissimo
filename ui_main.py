@@ -763,7 +763,87 @@ class Ui_MainWindow(object):
         self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.frame_2)
         self.verticalLayout_12.setObjectName("verticalLayout_12")
         self.gridLayout_3 = QtWidgets.QGridLayout()
+        self.gridLayout_3.setContentsMargins(150, -1, 150, 300)
+        self.gridLayout_3.setHorizontalSpacing(6)
+        self.gridLayout_3.setVerticalSpacing(20)
         self.gridLayout_3.setObjectName("gridLayout_3")
+        self.edit_pass = QtWidgets.QLineEdit(self.frame_2)
+        self.edit_pass.setMinimumSize(QtCore.QSize(0, 30))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setBold(True)
+        font.setWeight(75)
+        self.edit_pass.setFont(font)
+        self.edit_pass.setStyleSheet("QLineEdit {\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.edit_pass.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.edit_pass.setObjectName("edit_pass")
+        self.gridLayout_3.addWidget(self.edit_pass, 3, 0, 1, 1)
+        self.edit_login = QtWidgets.QLineEdit(self.frame_2)
+        self.edit_login.setMinimumSize(QtCore.QSize(0, 30))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setBold(True)
+        font.setWeight(75)
+        self.edit_login.setFont(font)
+        self.edit_login.setStyleSheet("QLineEdit {\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.edit_login.setObjectName("edit_login")
+        self.gridLayout_3.addWidget(self.edit_login, 2, 0, 1, 1)
+        self.label_login = QtWidgets.QLabel(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(30)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_login.setFont(font)
+        self.label_login.setStyleSheet("")
+        self.label_login.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_login.setObjectName("label_login")
+        self.gridLayout_3.addWidget(self.label_login, 1, 0, 1, 1)
+        self.btn_login = QtWidgets.QPushButton(self.frame_2)
+        self.btn_login.setMinimumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_login.setFont(font)
+        self.btn_login.setStyleSheet("QPushButton {\n"
+"    border: 2px solid rgb(52, 59, 72);\n"
+"    border-radius: 5px;    \n"
+"    background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(57, 65, 80);\n"
+"    border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"QPushButton:pressed {    \n"
+"    background-color: rgb(35, 40, 49);\n"
+"    border: 2px solid rgb(43, 50, 61);\n"
+"}")
+        self.btn_login.setObjectName("btn_login")
+        self.gridLayout_3.addWidget(self.btn_login, 4, 0, 1, 1)
         self.verticalLayout_12.addLayout(self.gridLayout_3)
         self.verticalLayout_7.addWidget(self.frame_2)
         self.stackedWidget.addWidget(self.page_login)
@@ -839,5 +919,9 @@ class Ui_MainWindow(object):
         self.btn_close.setToolTip(_translate("MainWindow", "Close"))
         self.label_top_info_2.setText(_translate("MainWindow", "| HOME"))
         self.label_6.setText(_translate("MainWindow", "HOME"))
+        self.edit_pass.setPlaceholderText(_translate("MainWindow", "Ваш пароль"))
+        self.edit_login.setPlaceholderText(_translate("MainWindow", "Ваш логин"))
+        self.label_login.setText(_translate("MainWindow", "Вход:"))
+        self.btn_login.setText(_translate("MainWindow", "Войти"))
         self.label_version.setText(_translate("MainWindow", "v1.0.0"))
 import files_rc
