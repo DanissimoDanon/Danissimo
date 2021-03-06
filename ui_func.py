@@ -1,6 +1,9 @@
 import os
 import subprocess
 import sys
+import hashlib
+import sqlite3
+from numpy import array
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect,
                           QSize, QTime, QUrl, Qt, QEvent, QThread, QSettings)
@@ -13,6 +16,33 @@ from ui_styles import Style
 GLOBAL_STATE = 0
 GLOBAL_TITLE_BAR = True
 count = 1
+conn = sqlite3.connect('study.db')
+cur = conn.cursor()
+
+
+class DataBase(object):
+    # def __init__(self):
+    #     self.firstLaunch = False
+
+    def createDb(self):
+        cur.execute("""CREATE TABLE IF NOT EXISTS users(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        fname TEXT,
+        lname TEXT,
+        pass TEXT,
+        roles TEXT,
+        groups TEXT,
+        discipline TEXT);""")
+        cur.execute("SELECT * FROM users;")
+        if cur.fetchone() is None:
+            self.firstLaunch = True
+        # cur.execute("SELECT roles FROM users WHERE roles='Системный администратор';")
+        # systAdmin = ('1', 'Даниил', 'Смирнов', 'admin', 'Системный администратор', 'None', 'None')
+        # cur.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?);", systAdmin)
+        conn.commit()
+
+class OtherFunctions(object):
+    pass
 
 class UIFunctions(object):
     GLOBAL_STATE = 0
@@ -151,3 +181,8 @@ class UIFunctions(object):
         self.ui.btn_minimize.clicked.connect(lambda: self.showMinimized())
         self.ui.btn_maximize_restore.clicked.connect(lambda: UIFunctions.maximize_restore(self))
         self.ui.btn_close.clicked.connect(lambda: self.close())
+
+def md5(text):
+    m = hashlib.md5()
+    m.update(text.encode('utf-8'))
+    return m.hexdigest()

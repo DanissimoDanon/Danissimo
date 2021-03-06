@@ -201,6 +201,10 @@ class Ui_MainWindow(object):
 "    border-radius: 2px;\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.centralwidget.setFont(font)
         self.centralwidget.setStyleSheet("background: transparent;\n"
 "color: rgb(210, 210, 210);")
         self.centralwidget.setObjectName("centralwidget")
@@ -746,6 +750,161 @@ class Ui_MainWindow(object):
         self.verticalLayout_11.setObjectName("verticalLayout_11")
         self.gridLayout_2 = QtWidgets.QGridLayout()
         self.gridLayout_2.setObjectName("gridLayout_2")
+        self.edit_profile_name = QtWidgets.QLineEdit(self.frame_1)
+        self.edit_profile_name.setMinimumSize(QtCore.QSize(0, 30))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.edit_profile_name.setFont(font)
+        self.edit_profile_name.setStyleSheet("QLineEdit {\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.edit_profile_name.setReadOnly(True)
+        self.edit_profile_name.setPlaceholderText("")
+        self.edit_profile_name.setObjectName("edit_profile_name")
+        self.gridLayout_2.addWidget(self.edit_profile_name, 1, 2, 1, 1)
+        self.btn_profile_resetPass = QtWidgets.QPushButton(self.frame_1)
+        self.btn_profile_resetPass.setMinimumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_profile_resetPass.setFont(font)
+        self.btn_profile_resetPass.setStyleSheet("QPushButton {\n"
+"    border: 2px solid rgb(52, 59, 72);\n"
+"    border-radius: 5px;    \n"
+"    background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(57, 65, 80);\n"
+"    border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"QPushButton:pressed {    \n"
+"    background-color: rgb(35, 40, 49);\n"
+"    border: 2px solid rgb(43, 50, 61);\n"
+"}")
+        self.btn_profile_resetPass.setObjectName("btn_profile_resetPass")
+        self.gridLayout_2.addWidget(self.btn_profile_resetPass, 4, 2, 1, 1)
+        self.label_profile_name = QtWidgets.QLabel(self.frame_1)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_profile_name.setFont(font)
+        self.label_profile_name.setStyleSheet("background: transparent;\n"
+"")
+        self.label_profile_name.setObjectName("label_profile_name")
+        self.gridLayout_2.addWidget(self.label_profile_name, 1, 0, 1, 1)
+        self.label_profile_role = QtWidgets.QLabel(self.frame_1)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_profile_role.setFont(font)
+        self.label_profile_role.setStyleSheet("background: transparent;\n"
+"")
+        self.label_profile_role.setObjectName("label_profile_role")
+        self.gridLayout_2.addWidget(self.label_profile_role, 5, 0, 1, 1)
+        self.edit_profile_pass = QtWidgets.QLineEdit(self.frame_1)
+        self.edit_profile_pass.setMinimumSize(QtCore.QSize(0, 30))
+        self.edit_profile_pass.setStyleSheet("QLineEdit {\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.edit_profile_pass.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.edit_profile_pass.setObjectName("edit_profile_pass")
+        self.gridLayout_2.addWidget(self.edit_profile_pass, 2, 2, 1, 1)
+        self.edit_profile_newPass = QtWidgets.QLineEdit(self.frame_1)
+        self.edit_profile_newPass.setMinimumSize(QtCore.QSize(0, 30))
+        self.edit_profile_newPass.setStyleSheet("QLineEdit {\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.edit_profile_newPass.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.edit_profile_newPass.setObjectName("edit_profile_newPass")
+        self.gridLayout_2.addWidget(self.edit_profile_newPass, 3, 2, 1, 1)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem, 7, 0, 1, 1)
+        self.edit_profile_role = QtWidgets.QLineEdit(self.frame_1)
+        self.edit_profile_role.setMinimumSize(QtCore.QSize(0, 30))
+        self.edit_profile_role.setStyleSheet("QLineEdit {\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.edit_profile_role.setReadOnly(True)
+        self.edit_profile_role.setPlaceholderText("")
+        self.edit_profile_role.setObjectName("edit_profile_role")
+        self.gridLayout_2.addWidget(self.edit_profile_role, 5, 2, 1, 1)
+        self.label_profile_pass = QtWidgets.QLabel(self.frame_1)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_profile_pass.setFont(font)
+        self.label_profile_pass.setStyleSheet("background: transparent;\n"
+"")
+        self.label_profile_pass.setObjectName("label_profile_pass")
+        self.gridLayout_2.addWidget(self.label_profile_pass, 2, 0, 1, 1)
+        self.btn_profile_exit = QtWidgets.QPushButton(self.frame_1)
+        self.btn_profile_exit.setMinimumSize(QtCore.QSize(50, 30))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_profile_exit.setFont(font)
+        self.btn_profile_exit.setStyleSheet("QPushButton {\n"
+"    border: 2px solid rgb(52, 59, 72);\n"
+"    border-radius: 5px;    \n"
+"    background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(57, 65, 80);\n"
+"    border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"QPushButton:pressed {    \n"
+"    background-color: rgb(35, 40, 49);\n"
+"    border: 2px solid rgb(43, 50, 61);\n"
+"}")
+        self.btn_profile_exit.setObjectName("btn_profile_exit")
+        self.gridLayout_2.addWidget(self.btn_profile_exit, 8, 0, 1, 1)
         self.verticalLayout_11.addLayout(self.gridLayout_2)
         self.verticalLayout_6.addWidget(self.frame_1)
         self.stackedWidget.addWidget(self.page_profile)
@@ -763,7 +922,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.frame_2)
         self.verticalLayout_12.setObjectName("verticalLayout_12")
         self.gridLayout_3 = QtWidgets.QGridLayout()
-        self.gridLayout_3.setContentsMargins(150, -1, 150, 300)
+        self.gridLayout_3.setContentsMargins(150, -1, 150, 250)
         self.gridLayout_3.setHorizontalSpacing(6)
         self.gridLayout_3.setVerticalSpacing(20)
         self.gridLayout_3.setObjectName("gridLayout_3")
@@ -789,27 +948,6 @@ class Ui_MainWindow(object):
         self.edit_pass.setEchoMode(QtWidgets.QLineEdit.Password)
         self.edit_pass.setObjectName("edit_pass")
         self.gridLayout_3.addWidget(self.edit_pass, 3, 0, 1, 1)
-        self.edit_login = QtWidgets.QLineEdit(self.frame_2)
-        self.edit_login.setMinimumSize(QtCore.QSize(0, 30))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setBold(True)
-        font.setWeight(75)
-        self.edit_login.setFont(font)
-        self.edit_login.setStyleSheet("QLineEdit {\n"
-"    background-color: rgb(27, 29, 35);\n"
-"    border-radius: 5px;\n"
-"    border: 2px solid rgb(27, 29, 35);\n"
-"    padding-left: 10px;\n"
-"}\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(64, 71, 88);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(91, 101, 124);\n"
-"}")
-        self.edit_login.setObjectName("edit_login")
-        self.gridLayout_3.addWidget(self.edit_login, 2, 0, 1, 1)
         self.label_login = QtWidgets.QLabel(self.frame_2)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
@@ -843,7 +981,43 @@ class Ui_MainWindow(object):
 "    border: 2px solid rgb(43, 50, 61);\n"
 "}")
         self.btn_login.setObjectName("btn_login")
-        self.gridLayout_3.addWidget(self.btn_login, 4, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.btn_login, 5, 0, 1, 1)
+        self.edit_login = QtWidgets.QLineEdit(self.frame_2)
+        self.edit_login.setMinimumSize(QtCore.QSize(0, 30))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setBold(True)
+        font.setWeight(75)
+        self.edit_login.setFont(font)
+        self.edit_login.setStyleSheet("QLineEdit {\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.edit_login.setObjectName("edit_login")
+        self.gridLayout_3.addWidget(self.edit_login, 2, 0, 1, 1)
+        self.label_login_err = QtWidgets.QLabel(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_login_err.setFont(font)
+        self.label_login_err.setStyleSheet("")
+        self.label_login_err.setText("")
+        self.label_login_err.setTextFormat(QtCore.Qt.AutoText)
+        self.label_login_err.setScaledContents(False)
+        self.label_login_err.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_login_err.setIndent(-1)
+        self.label_login_err.setObjectName("label_login_err")
+        self.gridLayout_3.addWidget(self.label_login_err, 6, 0, 1, 1)
         self.verticalLayout_12.addLayout(self.gridLayout_3)
         self.verticalLayout_7.addWidget(self.frame_2)
         self.stackedWidget.addWidget(self.page_login)
@@ -904,7 +1078,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.btn_minimize, self.btn_maximize_restore)
         MainWindow.setTabOrder(self.btn_maximize_restore, self.btn_close)
@@ -919,9 +1093,16 @@ class Ui_MainWindow(object):
         self.btn_close.setToolTip(_translate("MainWindow", "Close"))
         self.label_top_info_2.setText(_translate("MainWindow", "| NONE"))
         self.label_6.setText(_translate("MainWindow", "HOME"))
+        self.btn_profile_resetPass.setText(_translate("MainWindow", "Сменить пароль"))
+        self.label_profile_name.setText(_translate("MainWindow", "Ваше имя:"))
+        self.label_profile_role.setText(_translate("MainWindow", "Ваша роль:"))
+        self.edit_profile_pass.setPlaceholderText(_translate("MainWindow", "Текущий пароль"))
+        self.edit_profile_newPass.setPlaceholderText(_translate("MainWindow", "Новый пароль"))
+        self.label_profile_pass.setText(_translate("MainWindow", "Ваш пароль:"))
+        self.btn_profile_exit.setText(_translate("MainWindow", "Выход"))
         self.edit_pass.setPlaceholderText(_translate("MainWindow", "Ваш пароль"))
-        self.edit_login.setPlaceholderText(_translate("MainWindow", "Ваш логин"))
         self.label_login.setText(_translate("MainWindow", "Вход:"))
         self.btn_login.setText(_translate("MainWindow", "Войти"))
+        self.edit_login.setPlaceholderText(_translate("MainWindow", "Ваш логин"))
         self.label_version.setText(_translate("MainWindow", "v1.0.0"))
 import files_rc
