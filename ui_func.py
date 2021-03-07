@@ -3,7 +3,7 @@ import subprocess
 import sys
 import hashlib
 import sqlite3
-from numpy import array
+from numpy import array, where
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect,
                           QSize, QTime, QUrl, Qt, QEvent, QThread, QSettings)
@@ -11,6 +11,7 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFont
                          QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PyQt5.QtWidgets import *
 from ui_main import Ui_MainWindow
+from main import *
 from ui_styles import Style
 
 GLOBAL_STATE = 0
@@ -18,12 +19,10 @@ GLOBAL_TITLE_BAR = True
 count = 1
 conn = sqlite3.connect('study.db')
 cur = conn.cursor()
-
+ARR_ROLES = array(['Системный администратор', 'Администратор учебного процесса', 'Преподаватель', 'Студент'])
+ARR_STUDENTS_GROUPS = array([])
 
 class DataBase(object):
-    # def __init__(self):
-    #     self.firstLaunch = False
-
     def createDb(self):
         cur.execute("""CREATE TABLE IF NOT EXISTS users(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,13 +32,41 @@ class DataBase(object):
         roles TEXT,
         groups TEXT,
         discipline TEXT);""")
-        cur.execute("SELECT * FROM users;")
+        cur.execute("SELECT id FROM users;")
         if cur.fetchone() is None:
             self.firstLaunch = True
         # cur.execute("SELECT roles FROM users WHERE roles='Системный администратор';")
         # systAdmin = ('1', 'Даниил', 'Смирнов', 'admin', 'Системный администратор', 'None', 'None')
         # cur.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?);", systAdmin)
         conn.commit()
+
+    def getUsers(self):
+        cur.execute("SELECT * FROM users;")
+        return cur.fetchall()
+
+class AdminFunctions(MainWindow):
+    def tableCreate(self):
+        self.ui.tableWidget.clearContents()
+        self.ui.tableWidget.setRowCount(0)
+        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        self.ui.tableWidget.horizontalHeader().setVisible(True)
+        users = array(DataBase.getUsers(self))
+        for i in users:
+            self.ui.tableWidget.setRowCount(self.ui.tableWidget.rowCount() + 1)
+            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 0, QTableWidgetItem(i[0]))
+            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 1, QTableWidgetItem(i[1]))
+            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 2, QTableWidgetItem(i[2]))
+            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 3, QTableWidgetItem(i[3]))
+            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 4, QTableWidgetItem(i[4]))
+            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 5, QTableWidgetItem(i[5]))
+            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 6, QTableWidgetItem(i[6]))
+
+    def createButton(self):
+        self.ui.combo_users_role.clear()
+        self.ui.combo_users_role.addItem('Выбрать')
+        self.ui.combo_users_role.addItems(ARR_ROLES)
+        self.ui.btn_users_showTable.clicked.connect(self.adminBut)
+        self.ui.btn_users_addUser.clicked.connect(self.adminBut)
 
 class OtherFunctions(object):
     pass

@@ -725,7 +725,21 @@ class Ui_MainWindow(object):
         self.page_home.setObjectName("page_home")
         self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.page_home)
         self.verticalLayout_10.setObjectName("verticalLayout_10")
-        self.label_6 = QtWidgets.QLabel(self.page_home)
+        self.frame_3 = QtWidgets.QFrame(self.page_home)
+        self.frame_3.setMinimumSize(QtCore.QSize(0, 150))
+        self.frame_3.setStyleSheet("background-color: rgb(39, 44, 54);\n"
+"border-radius: 5px;")
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.frame_3)
+        self.verticalLayout_13.setObjectName("verticalLayout_13")
+        self.gridLayout_4 = QtWidgets.QGridLayout()
+        self.gridLayout_4.setContentsMargins(150, -1, 150, 250)
+        self.gridLayout_4.setHorizontalSpacing(6)
+        self.gridLayout_4.setVerticalSpacing(20)
+        self.gridLayout_4.setObjectName("gridLayout_4")
+        self.label_6 = QtWidgets.QLabel(self.frame_3)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(40)
@@ -733,8 +747,389 @@ class Ui_MainWindow(object):
         self.label_6.setStyleSheet("")
         self.label_6.setAlignment(QtCore.Qt.AlignCenter)
         self.label_6.setObjectName("label_6")
-        self.verticalLayout_10.addWidget(self.label_6)
+        self.gridLayout_4.addWidget(self.label_6, 0, 0, 1, 1)
+        self.verticalLayout_13.addLayout(self.gridLayout_4)
+        self.verticalLayout_10.addWidget(self.frame_3)
         self.stackedWidget.addWidget(self.page_home)
+        self.page_admin = QtWidgets.QWidget()
+        self.page_admin.setObjectName("page_admin")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.page_admin)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
+        self.frame_4 = QtWidgets.QFrame(self.page_admin)
+        self.frame_4.setMinimumSize(QtCore.QSize(0, 150))
+        self.frame_4.setStyleSheet("background-color: rgb(39, 44, 54);\n"
+"border-radius: 5px;")
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.verticalLayout_131 = QtWidgets.QVBoxLayout(self.frame_4)
+        self.verticalLayout_131.setObjectName("verticalLayout_131")
+        self.grid_5 = QtWidgets.QFrame(self.frame_4)
+        self.grid_5.setObjectName("grid_5")
+        self.gridLayout_5 = QtWidgets.QGridLayout(self.grid_5)
+        self.gridLayout_5.setContentsMargins(1, -1, 1, 1)
+        self.gridLayout_5.setSpacing(6)
+        self.gridLayout_5.setObjectName("gridLayout_5")
+        self.edit_users_name = QtWidgets.QLineEdit(self.grid_5)
+        self.edit_users_name.setMinimumSize(QtCore.QSize(0, 30))
+        self.edit_users_name.setSizeIncrement(QtCore.QSize(0, 0))
+        self.edit_users_name.setBaseSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.edit_users_name.setFont(font)
+        self.edit_users_name.setStyleSheet("QLineEdit {\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.edit_users_name.setReadOnly(False)
+        self.edit_users_name.setPlaceholderText("")
+        self.edit_users_name.setObjectName("edit_users_name")
+        self.gridLayout_5.addWidget(self.edit_users_name, 2, 2, 1, 1)
+        self.label_users_name = QtWidgets.QLabel(self.grid_5)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_users_name.setFont(font)
+        self.label_users_name.setStyleSheet("background: transparent;\n"
+"")
+        self.label_users_name.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_users_name.setObjectName("label_users_name")
+        self.gridLayout_5.addWidget(self.label_users_name, 2, 1, 1, 1)
+        self.label_users_group = QtWidgets.QLabel(self.grid_5)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_users_group.setFont(font)
+        self.label_users_group.setStyleSheet("")
+        self.label_users_group.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_users_group.setObjectName("label_users_group")
+        self.gridLayout_5.addWidget(self.label_users_group, 5, 3, 1, 1)
+        self.label_users_role = QtWidgets.QLabel(self.grid_5)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_users_role.setFont(font)
+        self.label_users_role.setStyleSheet("")
+        self.label_users_role.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_users_role.setObjectName("label_users_role")
+        self.gridLayout_5.addWidget(self.label_users_role, 2, 3, 1, 1)
+        self.label_users_pass = QtWidgets.QLabel(self.grid_5)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_users_pass.setFont(font)
+        self.label_users_pass.setStyleSheet("background: transparent;\n"
+"")
+        self.label_users_pass.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_users_pass.setObjectName("label_users_pass")
+        self.gridLayout_5.addWidget(self.label_users_pass, 5, 1, 1, 1)
+        self.combo_users_group = QtWidgets.QComboBox(self.grid_5)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(9)
+        self.combo_users_group.setFont(font)
+        self.combo_users_group.setAutoFillBackground(False)
+        self.combo_users_group.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding: 5px;\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QComboBox:hover{\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QComboBox QAbstractItemView {\n"
+"    color: rgb(85, 170, 255);    \n"
+"    background-color: rgb(27, 29, 35);\n"
+"    padding: 10px;\n"
+"    selection-background-color: rgb(39, 44, 54);\n"
+"}")
+        self.combo_users_group.setIconSize(QtCore.QSize(16, 16))
+        self.combo_users_group.setFrame(True)
+        self.combo_users_group.setObjectName("combo_users_group")
+        self.combo_users_group.addItem("")
+        self.combo_users_group.addItem("")
+        self.combo_users_group.addItem("")
+        self.gridLayout_5.addWidget(self.combo_users_group, 5, 4, 1, 1)
+        self.combo_users_role = QtWidgets.QComboBox(self.grid_5)
+        self.combo_users_role.setMinimumSize(QtCore.QSize(200, 0))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.combo_users_role.setFont(font)
+        self.combo_users_role.setAutoFillBackground(False)
+        self.combo_users_role.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding: 5px;\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QComboBox:hover{\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QComboBox QAbstractItemView {\n"
+"    color: rgb(85, 170, 255);    \n"
+"    background-color: rgb(27, 29, 35);\n"
+"    padding: 10px;\n"
+"    selection-background-color: rgb(39, 44, 54);\n"
+"}")
+        self.combo_users_role.setIconSize(QtCore.QSize(16, 16))
+        self.combo_users_role.setFrame(True)
+        self.combo_users_role.setObjectName("combo_users_role")
+        self.combo_users_role.addItem("")
+        self.combo_users_role.addItem("")
+        self.combo_users_role.addItem("")
+        self.gridLayout_5.addWidget(self.combo_users_role, 2, 4, 1, 1)
+        self.edit_users_pass = QtWidgets.QLineEdit(self.grid_5)
+        self.edit_users_pass.setMinimumSize(QtCore.QSize(0, 30))
+        self.edit_users_pass.setStyleSheet("QLineEdit {\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.edit_users_pass.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.edit_users_pass.setPlaceholderText("")
+        self.edit_users_pass.setObjectName("edit_users_pass")
+        self.gridLayout_5.addWidget(self.edit_users_pass, 5, 2, 1, 1)
+        self.btn_users_addUser = QtWidgets.QPushButton(self.grid_5)
+        self.btn_users_addUser.setMinimumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_users_addUser.setFont(font)
+        self.btn_users_addUser.setStyleSheet("QPushButton {\n"
+"    border: 2px solid rgb(52, 59, 72);\n"
+"    border-radius: 5px;    \n"
+"    background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(57, 65, 80);\n"
+"    border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"QPushButton:pressed {    \n"
+"    background-color: rgb(35, 40, 49);\n"
+"    border: 2px solid rgb(43, 50, 61);\n"
+"}")
+        self.btn_users_addUser.setObjectName("btn_users_addUser")
+        self.gridLayout_5.addWidget(self.btn_users_addUser, 6, 2, 1, 1)
+        self.verticalLayout_131.addWidget(self.grid_5)
+        self.tableWidget = QtWidgets.QTableWidget(self.frame_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
+        self.tableWidget.setSizePolicy(sizePolicy)
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(39, 44, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(39, 44, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(39, 44, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210, 128))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(39, 44, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(39, 44, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(39, 44, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210, 128))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(39, 44, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(39, 44, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(39, 44, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(210, 210, 210, 128))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
+        self.tableWidget.setPalette(palette)
+        self.tableWidget.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableWidget.setStyleSheet("QTableWidget {    \n"
+"    background-color: rgb(39, 44, 54);\n"
+"    padding: 10px;\n"
+"    border-radius: 5px;\n"
+"    gridline-color: rgb(44, 49, 60);\n"
+"    border-bottom: 1px solid rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::item{\n"
+"    border-color: rgb(44, 49, 60);\n"
+"    padding-left: 5px;\n"
+"    padding-right: 5px;\n"
+"    gridline-color: rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::item:selected{\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background: rgb(52, 59, 72);\n"
+"    height: 14px;\n"
+"    margin: 0px 21px 0 21px;\n"
+"    border-radius: 0px;\n"
+"}\n"
+" QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background: rgb(52, 59, 72);\n"
+"    width: 14px;\n"
+"    margin: 21px 0 21px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"QHeaderView::section{\n"
+"    Background-color: rgb(39, 44, 54);\n"
+"    max-width: 30px;\n"
+"    border: 1px solid rgb(44, 49, 60);\n"
+"    border-style: none;\n"
+"    border-bottom: 1px solid rgb(44, 49, 60);\n"
+"    border-right: 1px solid rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::horizontalHeader {    \n"
+"    background-color: rgb(81, 255, 0);\n"
+"}\n"
+"QHeaderView::section:horizontal\n"
+"{\n"
+"    border: 1px solid rgb(32, 34, 42);\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    padding: 3px;\n"
+"    border-top-left-radius: 7px;\n"
+"    border-top-right-radius: 7px;\n"
+"}\n"
+"QHeaderView::section:vertical\n"
+"{\n"
+"    border: 1px solid rgb(44, 49, 60);\n"
+"}\n"
+"")
+        self.tableWidget.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.tableWidget.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setAlternatingRowColors(False)
+        self.tableWidget.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
+        self.tableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectItems)
+        self.tableWidget.setVerticalScrollMode(QtWidgets.QAbstractItemView.ScrollPerPixel)
+        self.tableWidget.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollPerPixel)
+        self.tableWidget.setShowGrid(True)
+        self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableWidget.setRowCount(0)
+        self.tableWidget.setColumnCount(7)
+        self.tableWidget.setObjectName("tableWidget")
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(6, item)
+        self.tableWidget.horizontalHeader().setVisible(False)
+        self.tableWidget.horizontalHeader().setCascadingSectionResizes(False)
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(200)
+        self.tableWidget.horizontalHeader().setHighlightSections(False)
+        self.tableWidget.horizontalHeader().setStretchLastSection(False)
+        self.tableWidget.verticalHeader().setVisible(False)
+        self.tableWidget.verticalHeader().setCascadingSectionResizes(False)
+        self.tableWidget.verticalHeader().setHighlightSections(False)
+        self.tableWidget.verticalHeader().setStretchLastSection(False)
+        self.verticalLayout_131.addWidget(self.tableWidget)
+        self.btn_users_showTable = QtWidgets.QPushButton(self.frame_4)
+        self.btn_users_showTable.setMinimumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_users_showTable.setFont(font)
+        self.btn_users_showTable.setStyleSheet("QPushButton {\n"
+"    border: 2px solid rgb(52, 59, 72);\n"
+"    border-radius: 5px;    \n"
+"    background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(57, 65, 80);\n"
+"    border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"QPushButton:pressed {    \n"
+"    background-color: rgb(35, 40, 49);\n"
+"    border: 2px solid rgb(43, 50, 61);\n"
+"}")
+        self.btn_users_showTable.setObjectName("btn_users_showTable")
+        self.verticalLayout_131.addWidget(self.btn_users_showTable)
+        self.verticalLayout_8.addWidget(self.frame_4)
+        self.stackedWidget.addWidget(self.page_admin)
         self.page_profile = QtWidgets.QWidget()
         self.page_profile.setObjectName("page_profile")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.page_profile)
@@ -749,6 +1144,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.frame_1)
         self.verticalLayout_11.setObjectName("verticalLayout_11")
         self.gridLayout_2 = QtWidgets.QGridLayout()
+        self.gridLayout_2.setContentsMargins(-1, -1, -1, 0)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.edit_profile_name = QtWidgets.QLineEdit(self.frame_1)
         self.edit_profile_name.setMinimumSize(QtCore.QSize(0, 30))
@@ -903,6 +1299,9 @@ class Ui_MainWindow(object):
 "    background-color: rgb(35, 40, 49);\n"
 "    border: 2px solid rgb(43, 50, 61);\n"
 "}")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/16x16/icons/16x16/cil-account-logout.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_profile_exit.setIcon(icon3)
         self.btn_profile_exit.setObjectName("btn_profile_exit")
         self.gridLayout_2.addWidget(self.btn_profile_exit, 8, 0, 1, 1)
         self.verticalLayout_11.addLayout(self.gridLayout_2)
@@ -1093,6 +1492,33 @@ class Ui_MainWindow(object):
         self.btn_close.setToolTip(_translate("MainWindow", "Close"))
         self.label_top_info_2.setText(_translate("MainWindow", "| NONE"))
         self.label_6.setText(_translate("MainWindow", "HOME"))
+        self.label_users_name.setText(_translate("MainWindow", "Имя пользователя:"))
+        self.label_users_group.setText(_translate("MainWindow", "Группа:"))
+        self.label_users_role.setText(_translate("MainWindow", "Роль:"))
+        self.label_users_pass.setText(_translate("MainWindow", "Пароль для пользователя:"))
+        self.combo_users_group.setItemText(0, _translate("MainWindow", "Test 1"))
+        self.combo_users_group.setItemText(1, _translate("MainWindow", "Test 2"))
+        self.combo_users_group.setItemText(2, _translate("MainWindow", "Test 3"))
+        self.combo_users_role.setItemText(0, _translate("MainWindow", "Test 1"))
+        self.combo_users_role.setItemText(1, _translate("MainWindow", "Test 2"))
+        self.combo_users_role.setItemText(2, _translate("MainWindow", "Test 3"))
+        self.btn_users_addUser.setText(_translate("MainWindow", "Добавить пользователя"))
+        self.tableWidget.setSortingEnabled(True)
+        item = self.tableWidget.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Id"))
+        item = self.tableWidget.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Имя"))
+        item = self.tableWidget.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Фамилия"))
+        item = self.tableWidget.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Пароль"))
+        item = self.tableWidget.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Роль"))
+        item = self.tableWidget.horizontalHeaderItem(5)
+        item.setText(_translate("MainWindow", "Группа"))
+        item = self.tableWidget.horizontalHeaderItem(6)
+        item.setText(_translate("MainWindow", "Дисциплина"))
+        self.btn_users_showTable.setText(_translate("MainWindow", "Увеличить таблицу..."))
         self.btn_profile_resetPass.setText(_translate("MainWindow", "Сменить пароль"))
         self.label_profile_name.setText(_translate("MainWindow", "Ваше имя:"))
         self.label_profile_role.setText(_translate("MainWindow", "Ваша роль:"))
