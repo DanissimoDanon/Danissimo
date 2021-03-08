@@ -3,7 +3,9 @@ import subprocess
 import sys
 import hashlib
 import sqlite3
-from numpy import array, where
+from random import choice
+from string import ascii_letters, digits
+from numpy import array, where, append
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect,
                           QSize, QTime, QUrl, Qt, QEvent, QThread, QSettings)
@@ -12,7 +14,6 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFont
 from PyQt5.QtWidgets import *
 from ui_main import Ui_MainWindow
 from main import *
-from ui_styles import Style
 
 GLOBAL_STATE = 0
 GLOBAL_TITLE_BAR = True
@@ -20,6 +21,7 @@ count = 1
 conn = sqlite3.connect('study.db')
 cur = conn.cursor()
 ARR_ROLES = array(['Системный администратор', 'Администратор учебного процесса', 'Преподаватель', 'Студент'])
+ARR_ADMIN = array(['admin', 'admin', 'Даниил', 'Смирнов', ARR_ROLES[0]])
 ARR_STUDENTS_GROUPS = array([])
 
 class DataBase(object):
@@ -28,21 +30,24 @@ class DataBase(object):
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         fname TEXT,
         lname TEXT,
+        login TEXT,
         pass TEXT,
         roles TEXT,
         groups TEXT,
         discipline TEXT);""")
-        cur.execute("SELECT id FROM users;")
-        if cur.fetchone() is None:
-            self.firstLaunch = True
-        # cur.execute("SELECT roles FROM users WHERE roles='Системный администратор';")
-        # systAdmin = ('1', 'Даниил', 'Смирнов', 'admin', 'Системный администратор', 'None', 'None')
-        # cur.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?);", systAdmin)
         conn.commit()
+        cur.execute("SELECT roles FROM users WHERE roles='Системный администратор';")
+        if cur.fetchone() is None:
+            DataBase.insertUser(self, ARR_ADMIN[0], ARR_ADMIN[1], ARR_ADMIN[2], ARR_ADMIN[3], ARR_ADMIN[4])
 
     def getUsers(self):
         cur.execute("SELECT * FROM users;")
         return cur.fetchall()
+
+    def insertUser(self, login, passw, fname, lname, role, clas='NONE', group='NONE'):
+        cur.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?, ?);",
+                    (None, fname, lname, login, md5(passw), role, clas, group))
+        conn.commit()
 
 class AdminFunctions(MainWindow):
     def tableCreate(self):
@@ -60,6 +65,7 @@ class AdminFunctions(MainWindow):
             self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 4, QTableWidgetItem(i[4]))
             self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 5, QTableWidgetItem(i[5]))
             self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 6, QTableWidgetItem(i[6]))
+            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 7, QTableWidgetItem(i[7]))
 
     def createButton(self):
         self.ui.combo_users_role.clear()
@@ -135,29 +141,6 @@ class UIFunctions(object):
     def labelDescription(self, text):
         self.ui.label_top_info_1.setText(text)
 
-    def addNewMenu(self, name, objName, icon, isTopMenu):
-        font = QFont('Segoe UI', 10)
-        font.setBold(True)
-        button = QPushButton(str(count), self)
-        button.setObjectName(objName)
-        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(button.sizePolicy().hasHeightForWidth())
-        button.setSizePolicy(sizePolicy3)
-        button.setMinimumSize(QSize(0, 70))
-        button.setLayoutDirection(Qt.LeftToRight)
-        button.setFont(font)
-        button.setStyleSheet(Style.style_bt_standard.replace('ICON_REPLACE', icon))
-        button.setText(name)
-        button.setToolTip(name)
-        button.clicked.connect(self.buttons)
-
-        if isTopMenu:
-            self.ui.layout_menus.addWidget(button)
-        else:
-            self.ui.layout_menu_bottom.addWidget(button)
-
     def selectMenu(self, getStyle):
         select = getStyle + 'QPushButton { border-right: 7px solid rgb(44, 49, 60); }'
         return select
@@ -213,3 +196,11 @@ def md5(text):
     m = hashlib.md5()
     m.update(text.encode('utf-8'))
     return m.hexdigest()
+
+def randGen():
+    end = []
+    sym = ascii_letters + digits
+    for i in range(12):
+        end.append(choice(sym))
+    end = ''.join(end)
+    return end
