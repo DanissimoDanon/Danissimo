@@ -1018,7 +1018,7 @@ QPushButton:pressed {
                      </property>
                      <property name="styleSheet">
                       <string notr="true">background: transparent;
-background-image: url(:/16x16/icons/16x16/cil-terminal.png);
+background-image: url(:/16x16/icons/16x16/logotype.png);
 background-position: center;
 background-repeat: no-repeat;
 </string>
@@ -1688,7 +1688,7 @@ QPushButton:pressed {
                    <string notr="true">background: transparent;</string>
                   </property>
                   <property name="currentIndex">
-                   <number>1</number>
+                   <number>0</number>
                   </property>
                   <widget class="QWidget" name="page_home">
                    <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -2498,7 +2498,7 @@ QHeaderView::section:vertical
                          </column>
                          <column>
                           <property name="text">
-                           <string>Логин</string>
+                           <string>Имя</string>
                           </property>
                          </column>
                          <column>
@@ -3241,7 +3241,6 @@ QLineEdit:focus {
  </tabstops>
  <resources>
   <include location="files.qrc"/>
-  <include location="Simple_Example/files.qrc"/>
  </resources>
  <connections/>
 </ui>
