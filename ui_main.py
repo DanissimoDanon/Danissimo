@@ -504,7 +504,7 @@ class Ui_MainWindow(object):
         self.frame_icon_top_bar = QtWidgets.QFrame(self.frame_label_top_btns)
         self.frame_icon_top_bar.setMaximumSize(QtCore.QSize(30, 30))
         self.frame_icon_top_bar.setStyleSheet("background: transparent;\n"
-"background-image: url(:/16x16/icons/16x16/logotype.png);\n"
+"background-image: url(:/16x16/icons/16x16/cil-terminal.png);\n"
 "background-position: center;\n"
 "background-repeat: no-repeat;\n"
 "")
@@ -759,6 +759,43 @@ class Ui_MainWindow(object):
         self.btn_addUsers_page.setFlat(False)
         self.btn_addUsers_page.setObjectName("btn_addUsers_page")
         self.verticalLayout_14.addWidget(self.btn_addUsers_page)
+        self.btn_tests_page = QtWidgets.QPushButton(self.frame_menus)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btn_tests_page.sizePolicy().hasHeightForWidth())
+        self.btn_tests_page.setSizePolicy(sizePolicy)
+        self.btn_tests_page.setMinimumSize(QtCore.QSize(0, 70))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_tests_page.setFont(font)
+        self.btn_tests_page.setStyleSheet("QPushButton {\n"
+"    background-image: url(:/16x16/icons/16x16/cil-task.png);\n"
+"    background-position: left center;\n"
+"    background-repeat: no-repeat;\n"
+"    border: none;\n"
+"    border-left: 28px solid rgb(27, 29, 35);\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    text-align: left;\n"
+"    padding-left: 45px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(33, 37, 43);\n"
+"    border-left: 28px solid rgb(33, 37, 43);\n"
+"}\n"
+"QPushButton:pressed {    \n"
+"    background-color: rgb(85, 170, 255);\n"
+"    border-left: 28px solid rgb(85, 170, 255);\n"
+"}")
+        self.btn_tests_page.setAutoExclusive(False)
+        self.btn_tests_page.setAutoDefault(False)
+        self.btn_tests_page.setDefault(False)
+        self.btn_tests_page.setFlat(False)
+        self.btn_tests_page.setObjectName("btn_tests_page")
+        self.verticalLayout_14.addWidget(self.btn_tests_page)
         self.verticalLayout_5.addWidget(self.frame_menus, 0, QtCore.Qt.AlignTop)
         self.frame_extra_menus = QtWidgets.QFrame(self.frame_left_menu)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -877,15 +914,15 @@ class Ui_MainWindow(object):
         self.gridLayout_5.setContentsMargins(1, -1, 1, 1)
         self.gridLayout_5.setSpacing(6)
         self.gridLayout_5.setObjectName("gridLayout_5")
-        self.edit_users_name = QtWidgets.QLineEdit(self.grid_5)
-        self.edit_users_name.setMinimumSize(QtCore.QSize(0, 30))
-        self.edit_users_name.setSizeIncrement(QtCore.QSize(0, 0))
-        self.edit_users_name.setBaseSize(QtCore.QSize(0, 0))
+        self.edit_addUsers_fname = QtWidgets.QLineEdit(self.grid_5)
+        self.edit_addUsers_fname.setMinimumSize(QtCore.QSize(0, 30))
+        self.edit_addUsers_fname.setSizeIncrement(QtCore.QSize(0, 0))
+        self.edit_addUsers_fname.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
-        self.edit_users_name.setFont(font)
-        self.edit_users_name.setStyleSheet("QLineEdit {\n"
+        self.edit_addUsers_fname.setFont(font)
+        self.edit_addUsers_fname.setStyleSheet("QLineEdit {\n"
 "    background-color: rgb(27, 29, 35);\n"
 "    border-radius: 5px;\n"
 "    border: 2px solid rgb(27, 29, 35);\n"
@@ -897,51 +934,41 @@ class Ui_MainWindow(object):
 "QLineEdit:focus {\n"
 "    border: 2px solid rgb(91, 101, 124);\n"
 "}")
-        self.edit_users_name.setReadOnly(False)
-        self.edit_users_name.setPlaceholderText("")
-        self.edit_users_name.setObjectName("edit_users_name")
-        self.gridLayout_5.addWidget(self.edit_users_name, 2, 2, 1, 1)
-        self.label_users_name = QtWidgets.QLabel(self.grid_5)
+        self.edit_addUsers_fname.setReadOnly(False)
+        self.edit_addUsers_fname.setPlaceholderText("")
+        self.edit_addUsers_fname.setObjectName("edit_addUsers_fname")
+        self.gridLayout_5.addWidget(self.edit_addUsers_fname, 2, 2, 1, 1)
+        self.label_addUsers_fname = QtWidgets.QLabel(self.grid_5)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.label_users_name.setFont(font)
-        self.label_users_name.setStyleSheet("background: transparent;\n"
+        self.label_addUsers_fname.setFont(font)
+        self.label_addUsers_fname.setStyleSheet("background: transparent;\n"
 "")
-        self.label_users_name.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_users_name.setObjectName("label_users_name")
-        self.gridLayout_5.addWidget(self.label_users_name, 2, 1, 1, 1)
-        self.label_users_group = QtWidgets.QLabel(self.grid_5)
+        self.label_addUsers_fname.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_addUsers_fname.setObjectName("label_addUsers_fname")
+        self.gridLayout_5.addWidget(self.label_addUsers_fname, 2, 1, 1, 1)
+        self.label_addUsers_role = QtWidgets.QLabel(self.grid_5)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.label_users_group.setFont(font)
-        self.label_users_group.setStyleSheet("")
-        self.label_users_group.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_users_group.setObjectName("label_users_group")
-        self.gridLayout_5.addWidget(self.label_users_group, 5, 3, 1, 1)
-        self.label_users_role = QtWidgets.QLabel(self.grid_5)
+        self.label_addUsers_role.setFont(font)
+        self.label_addUsers_role.setStyleSheet("")
+        self.label_addUsers_role.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_addUsers_role.setObjectName("label_addUsers_role")
+        self.gridLayout_5.addWidget(self.label_addUsers_role, 2, 3, 1, 1)
+        self.combo_addUsers_role = QtWidgets.QComboBox(self.grid_5)
+        self.combo_addUsers_role.setMinimumSize(QtCore.QSize(200, 0))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_users_role.setFont(font)
-        self.label_users_role.setStyleSheet("")
-        self.label_users_role.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_users_role.setObjectName("label_users_role")
-        self.gridLayout_5.addWidget(self.label_users_role, 2, 3, 1, 1)
-        self.combo_users_group = QtWidgets.QComboBox(self.grid_5)
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(9)
-        self.combo_users_group.setFont(font)
-        self.combo_users_group.setAutoFillBackground(False)
-        self.combo_users_group.setStyleSheet("QComboBox{\n"
+        self.combo_addUsers_role.setFont(font)
+        self.combo_addUsers_role.setAutoFillBackground(False)
+        self.combo_addUsers_role.setStyleSheet("QComboBox{\n"
 "    background-color: rgb(27, 29, 35);\n"
 "    border-radius: 5px;\n"
 "    border: 2px solid rgb(27, 29, 35);\n"
@@ -957,93 +984,22 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    selection-background-color: rgb(39, 44, 54);\n"
 "}")
-        self.combo_users_group.setIconSize(QtCore.QSize(16, 16))
-        self.combo_users_group.setFrame(True)
-        self.combo_users_group.setObjectName("combo_users_group")
-        self.combo_users_group.addItem("")
-        self.combo_users_group.addItem("")
-        self.combo_users_group.addItem("")
-        self.gridLayout_5.addWidget(self.combo_users_group, 5, 4, 1, 1)
-        self.combo_users_role = QtWidgets.QComboBox(self.grid_5)
-        self.combo_users_role.setMinimumSize(QtCore.QSize(200, 0))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(10)
-        self.combo_users_role.setFont(font)
-        self.combo_users_role.setAutoFillBackground(False)
-        self.combo_users_role.setStyleSheet("QComboBox{\n"
-"    background-color: rgb(27, 29, 35);\n"
-"    border-radius: 5px;\n"
-"    border: 2px solid rgb(27, 29, 35);\n"
-"    padding: 5px;\n"
-"    padding-left: 10px;\n"
-"}\n"
-"QComboBox:hover{\n"
-"    border: 2px solid rgb(64, 71, 88);\n"
-"}\n"
-"QComboBox QAbstractItemView {\n"
-"    color: rgb(85, 170, 255);    \n"
-"    background-color: rgb(27, 29, 35);\n"
-"    padding: 10px;\n"
-"    selection-background-color: rgb(39, 44, 54);\n"
-"}")
-        self.combo_users_role.setIconSize(QtCore.QSize(16, 16))
-        self.combo_users_role.setFrame(True)
-        self.combo_users_role.setObjectName("combo_users_role")
-        self.combo_users_role.addItem("")
-        self.combo_users_role.addItem("")
-        self.combo_users_role.addItem("")
-        self.gridLayout_5.addWidget(self.combo_users_role, 2, 4, 1, 1)
-        self.combo_users_class = QtWidgets.QComboBox(self.grid_5)
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(9)
-        self.combo_users_class.setFont(font)
-        self.combo_users_class.setAutoFillBackground(False)
-        self.combo_users_class.setStyleSheet("QComboBox{\n"
-"    background-color: rgb(27, 29, 35);\n"
-"    border-radius: 5px;\n"
-"    border: 2px solid rgb(27, 29, 35);\n"
-"    padding: 5px;\n"
-"    padding-left: 10px;\n"
-"}\n"
-"QComboBox:hover{\n"
-"    border: 2px solid rgb(64, 71, 88);\n"
-"}\n"
-"QComboBox QAbstractItemView {\n"
-"    color: rgb(85, 170, 255);    \n"
-"    background-color: rgb(27, 29, 35);\n"
-"    padding: 10px;\n"
-"    selection-background-color: rgb(39, 44, 54);\n"
-"}")
-        self.combo_users_class.setIconSize(QtCore.QSize(16, 16))
-        self.combo_users_class.setFrame(True)
-        self.combo_users_class.setObjectName("combo_users_class")
-        self.combo_users_class.addItem("")
-        self.combo_users_class.addItem("")
-        self.combo_users_class.addItem("")
-        self.gridLayout_5.addWidget(self.combo_users_class, 6, 4, 1, 1)
-        self.label_users_class = QtWidgets.QLabel(self.grid_5)
+        self.combo_addUsers_role.setIconSize(QtCore.QSize(16, 16))
+        self.combo_addUsers_role.setFrame(True)
+        self.combo_addUsers_role.setObjectName("combo_addUsers_role")
+        self.combo_addUsers_role.addItem("")
+        self.combo_addUsers_role.addItem("")
+        self.combo_addUsers_role.addItem("")
+        self.gridLayout_5.addWidget(self.combo_addUsers_role, 2, 4, 1, 1)
+        self.btn_addUsers_add = QtWidgets.QPushButton(self.grid_5)
+        self.btn_addUsers_add.setMinimumSize(QtCore.QSize(150, 30))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.label_users_class.setFont(font)
-        self.label_users_class.setStyleSheet("background: transparent;\n"
-"")
-        self.label_users_class.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_users_class.setObjectName("label_users_class")
-        self.gridLayout_5.addWidget(self.label_users_class, 6, 3, 1, 1)
-        self.btn_users_addUser = QtWidgets.QPushButton(self.grid_5)
-        self.btn_users_addUser.setMinimumSize(QtCore.QSize(150, 30))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.btn_users_addUser.setFont(font)
-        self.btn_users_addUser.setStyleSheet("QPushButton {\n"
+        self.btn_addUsers_add.setFont(font)
+        self.btn_addUsers_add.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(52, 59, 72);\n"
 "    border-radius: 5px;    \n"
 "    background-color: rgb(52, 59, 72);\n"
@@ -1056,21 +1012,97 @@ class Ui_MainWindow(object):
 "    background-color: rgb(35, 40, 49);\n"
 "    border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        self.btn_users_addUser.setObjectName("btn_users_addUser")
-        self.gridLayout_5.addWidget(self.btn_users_addUser, 5, 2, 1, 1)
-        self.label_users_err = QtWidgets.QLabel(self.grid_5)
+        self.btn_addUsers_add.setObjectName("btn_addUsers_add")
+        self.gridLayout_5.addWidget(self.btn_addUsers_add, 5, 2, 1, 1)
+        self.label_addUsers_err = QtWidgets.QLabel(self.grid_5)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.label_users_err.setFont(font)
-        self.label_users_err.setStyleSheet("background: transparent;\n"
+        self.label_addUsers_err.setFont(font)
+        self.label_addUsers_err.setStyleSheet("background: transparent;\n"
 "")
-        self.label_users_err.setText("")
-        self.label_users_err.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_users_err.setObjectName("label_users_err")
-        self.gridLayout_5.addWidget(self.label_users_err, 6, 2, 1, 1)
+        self.label_addUsers_err.setText("")
+        self.label_addUsers_err.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_addUsers_err.setObjectName("label_addUsers_err")
+        self.gridLayout_5.addWidget(self.label_addUsers_err, 6, 2, 1, 1)
+        self.edit_addUsers_lname = QtWidgets.QLineEdit(self.grid_5)
+        self.edit_addUsers_lname.setMinimumSize(QtCore.QSize(0, 30))
+        self.edit_addUsers_lname.setSizeIncrement(QtCore.QSize(0, 0))
+        self.edit_addUsers_lname.setBaseSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.edit_addUsers_lname.setFont(font)
+        self.edit_addUsers_lname.setStyleSheet("QLineEdit {\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.edit_addUsers_lname.setReadOnly(False)
+        self.edit_addUsers_lname.setPlaceholderText("")
+        self.edit_addUsers_lname.setObjectName("edit_addUsers_lname")
+        self.gridLayout_5.addWidget(self.edit_addUsers_lname, 3, 2, 1, 1)
+        self.label_addUsers_lname = QtWidgets.QLabel(self.grid_5)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_addUsers_lname.setFont(font)
+        self.label_addUsers_lname.setStyleSheet("background: transparent;\n"
+"")
+        self.label_addUsers_lname.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_addUsers_lname.setObjectName("label_addUsers_lname")
+        self.gridLayout_5.addWidget(self.label_addUsers_lname, 3, 1, 1, 1)
+        self.combo_addUsers_group = QtWidgets.QComboBox(self.grid_5)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(9)
+        self.combo_addUsers_group.setFont(font)
+        self.combo_addUsers_group.setAutoFillBackground(False)
+        self.combo_addUsers_group.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(27, 29, 35);\n"
+"    border-radius: 5px;\n"
+"    border: 2px solid rgb(27, 29, 35);\n"
+"    padding: 5px;\n"
+"    padding-left: 10px;\n"
+"}\n"
+"QComboBox:hover{\n"
+"    border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QComboBox QAbstractItemView {\n"
+"    color: rgb(85, 170, 255);    \n"
+"    background-color: rgb(27, 29, 35);\n"
+"    padding: 10px;\n"
+"    selection-background-color: rgb(39, 44, 54);\n"
+"}")
+        self.combo_addUsers_group.setIconSize(QtCore.QSize(16, 16))
+        self.combo_addUsers_group.setFrame(True)
+        self.combo_addUsers_group.setObjectName("combo_addUsers_group")
+        self.combo_addUsers_group.addItem("")
+        self.combo_addUsers_group.addItem("")
+        self.combo_addUsers_group.addItem("")
+        self.gridLayout_5.addWidget(self.combo_addUsers_group, 3, 4, 1, 1)
+        self.label_addUsers_group = QtWidgets.QLabel(self.grid_5)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_addUsers_group.setFont(font)
+        self.label_addUsers_group.setStyleSheet("")
+        self.label_addUsers_group.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_addUsers_group.setObjectName("label_addUsers_group")
+        self.gridLayout_5.addWidget(self.label_addUsers_group, 3, 3, 1, 1)
         self.verticalLayout_131.addWidget(self.grid_5)
         self.tableWidget = QtWidgets.QTableWidget(self.frame_4)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -1210,7 +1242,7 @@ class Ui_MainWindow(object):
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
         self.tableWidget.setRowCount(0)
-        self.tableWidget.setColumnCount(8)
+        self.tableWidget.setColumnCount(7)
         self.tableWidget.setObjectName("tableWidget")
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
@@ -1226,8 +1258,6 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(5, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(6, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(7, item)
         self.tableWidget.horizontalHeader().setVisible(False)
         self.tableWidget.horizontalHeader().setCascadingSectionResizes(False)
         self.tableWidget.horizontalHeader().setDefaultSectionSize(200)
@@ -1238,15 +1268,15 @@ class Ui_MainWindow(object):
         self.tableWidget.verticalHeader().setHighlightSections(False)
         self.tableWidget.verticalHeader().setStretchLastSection(False)
         self.verticalLayout_131.addWidget(self.tableWidget)
-        self.btn_users_showTable = QtWidgets.QPushButton(self.frame_4)
-        self.btn_users_showTable.setMinimumSize(QtCore.QSize(150, 30))
+        self.btn_addUsers_showTable = QtWidgets.QPushButton(self.frame_4)
+        self.btn_addUsers_showTable.setMinimumSize(QtCore.QSize(150, 30))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.btn_users_showTable.setFont(font)
-        self.btn_users_showTable.setStyleSheet("QPushButton {\n"
+        self.btn_addUsers_showTable.setFont(font)
+        self.btn_addUsers_showTable.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(52, 59, 72);\n"
 "    border-radius: 5px;    \n"
 "    background-color: rgb(52, 59, 72);\n"
@@ -1259,8 +1289,8 @@ class Ui_MainWindow(object):
 "    background-color: rgb(35, 40, 49);\n"
 "    border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        self.btn_users_showTable.setObjectName("btn_users_showTable")
-        self.verticalLayout_131.addWidget(self.btn_users_showTable)
+        self.btn_addUsers_showTable.setObjectName("btn_addUsers_showTable")
+        self.verticalLayout_131.addWidget(self.btn_addUsers_showTable)
         self.verticalLayout_8.addWidget(self.frame_4)
         self.stackedWidget.addWidget(self.page_admin)
         self.page_profile = QtWidgets.QWidget()
@@ -1610,7 +1640,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.btn_minimize, self.btn_maximize_restore)
         MainWindow.setTabOrder(self.btn_maximize_restore, self.btn_close)
@@ -1626,22 +1656,20 @@ class Ui_MainWindow(object):
         self.label_top_info_2.setText(_translate("MainWindow", "| NONE"))
         self.btn_home_page.setText(_translate("MainWindow", "Главная"))
         self.btn_addUsers_page.setText(_translate("MainWindow", "Доб. пользователя"))
+        self.btn_tests_page.setText(_translate("MainWindow", "Доб. пользователя"))
         self.btn_profile_page.setText(_translate("MainWindow", "Профиль"))
         self.label_6.setText(_translate("MainWindow", "HOME"))
-        self.label_users_name.setText(_translate("MainWindow", "Имя пользователя:"))
-        self.label_users_group.setText(_translate("MainWindow", "Группа:"))
-        self.label_users_role.setText(_translate("MainWindow", "Роль:"))
-        self.combo_users_group.setItemText(0, _translate("MainWindow", "Test 1"))
-        self.combo_users_group.setItemText(1, _translate("MainWindow", "Test 2"))
-        self.combo_users_group.setItemText(2, _translate("MainWindow", "Test 3"))
-        self.combo_users_role.setItemText(0, _translate("MainWindow", "Test 1"))
-        self.combo_users_role.setItemText(1, _translate("MainWindow", "Test 2"))
-        self.combo_users_role.setItemText(2, _translate("MainWindow", "Test 3"))
-        self.combo_users_class.setItemText(0, _translate("MainWindow", "Test 1"))
-        self.combo_users_class.setItemText(1, _translate("MainWindow", "Test 2"))
-        self.combo_users_class.setItemText(2, _translate("MainWindow", "Test 3"))
-        self.label_users_class.setText(_translate("MainWindow", "Класс:"))
-        self.btn_users_addUser.setText(_translate("MainWindow", "Добавить пользователя"))
+        self.label_addUsers_fname.setText(_translate("MainWindow", "Имя:"))
+        self.label_addUsers_role.setText(_translate("MainWindow", "Роль:"))
+        self.combo_addUsers_role.setItemText(0, _translate("MainWindow", "Test 1"))
+        self.combo_addUsers_role.setItemText(1, _translate("MainWindow", "Test 2"))
+        self.combo_addUsers_role.setItemText(2, _translate("MainWindow", "Test 3"))
+        self.btn_addUsers_add.setText(_translate("MainWindow", "Добавить пользователя"))
+        self.label_addUsers_lname.setText(_translate("MainWindow", "Фамилия:"))
+        self.combo_addUsers_group.setItemText(0, _translate("MainWindow", "Test 1"))
+        self.combo_addUsers_group.setItemText(1, _translate("MainWindow", "Test 2"))
+        self.combo_addUsers_group.setItemText(2, _translate("MainWindow", "Test 3"))
+        self.label_addUsers_group.setText(_translate("MainWindow", "Группа:"))
         self.tableWidget.setSortingEnabled(True)
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Id"))
@@ -1657,9 +1685,7 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Роль"))
         item = self.tableWidget.horizontalHeaderItem(6)
         item.setText(_translate("MainWindow", "Группа"))
-        item = self.tableWidget.horizontalHeaderItem(7)
-        item.setText(_translate("MainWindow", "Дисциплина"))
-        self.btn_users_showTable.setText(_translate("MainWindow", "Увеличить таблицу..."))
+        self.btn_addUsers_showTable.setText(_translate("MainWindow", "Увеличить таблицу..."))
         self.btn_profile_resetPass.setText(_translate("MainWindow", "Сменить пароль"))
         self.label_profile_name.setText(_translate("MainWindow", "Ваше имя:"))
         self.label_profile_role.setText(_translate("MainWindow", "Ваша роль:"))

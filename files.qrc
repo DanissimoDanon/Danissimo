@@ -1,6 +1,5 @@
 <RCC>
   <qresource prefix="16x16">
-    <file>icons/16x16/logotype.png</file>
     <file>icons/16x16/cil-arrow-bottom.png</file>
     <file>icons/16x16/cil-arrow-top.png</file>
     <file>icons/16x16/cil-size-grip.png</file>

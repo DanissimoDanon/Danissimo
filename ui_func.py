@@ -33,20 +33,22 @@ class DataBase(object):
         login TEXT,
         pass TEXT,
         roles TEXT,
-        groups TEXT,
-        discipline TEXT);""")
+        groups TEXT);""")
         conn.commit()
         cur.execute("SELECT roles FROM users WHERE roles='Системный администратор';")
         if cur.fetchone() is None:
-            DataBase.insertUser(self, ARR_ADMIN[0], ARR_ADMIN[1], ARR_ADMIN[2], ARR_ADMIN[3], ARR_ADMIN[4])
+            DataBase.insertUser(self, ARR_ADMIN[0], md5(ARR_ADMIN[1]), ARR_ADMIN[2], ARR_ADMIN[3], ARR_ADMIN[4])
 
-    def getUsers(self):
+    def getUsers(self, All=True):
         cur.execute("SELECT * FROM users;")
-        return cur.fetchall()
+        if All:
+            return cur.fetchall()
+        else:
+            return cur.fetchone()
 
-    def insertUser(self, login, passw, fname, lname, role, clas='NONE', group='NONE'):
-        cur.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?, ?);",
-                    (None, fname, lname, login, md5(passw), role, clas, group))
+    def insertUser(self, login, passw, fname, lname, role, group='NONE'):
+        cur.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?);",
+                    (None, fname, lname, login, passw, role, group))
         conn.commit()
 
 class AdminFunctions(MainWindow):
@@ -58,24 +60,32 @@ class AdminFunctions(MainWindow):
         users = array(DataBase.getUsers(self))
         for i in users:
             self.ui.tableWidget.setRowCount(self.ui.tableWidget.rowCount() + 1)
-            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 0, QTableWidgetItem(i[0]))
-            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 1, QTableWidgetItem(i[1]))
-            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 2, QTableWidgetItem(i[2]))
-            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 3, QTableWidgetItem(i[3]))
-            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 4, QTableWidgetItem(i[4]))
-            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 5, QTableWidgetItem(i[5]))
-            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 6, QTableWidgetItem(i[6]))
-            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, 7, QTableWidgetItem(i[7]))
+            for x in range(7):
+                self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, x, QTableWidgetItem(i[x]))
+
+    def insertTable(self):
+        cur.execute("SELECT * FROM users ORDER BY id DESC;")
+        user = cur.fetchone()
+        self.ui.tableWidget.setRowCount(self.ui.tableWidget.rowCount() + 1)
+        for x in range(7):
+            self.ui.tableWidget.setItem(self.ui.tableWidget.rowCount() - 1, x, QTableWidgetItem(str(user[x])))
 
     def createButton(self):
-        self.ui.combo_users_role.clear()
-        self.ui.combo_users_role.addItem('Выбрать')
-        self.ui.combo_users_role.addItems(ARR_ROLES)
-        self.ui.btn_users_showTable.clicked.connect(self.adminBut)
-        self.ui.btn_users_addUser.clicked.connect(self.adminBut)
+        self.ui.combo_addUsers_role.clear()
+        self.ui.combo_addUsers_role.addItem('Выбрать')
+        self.ui.combo_addUsers_role.addItems(ARR_ROLES)
+        self.ui.combo_addUsers_group.clear()
+        self.ui.combo_addUsers_group.addItem('Выбрать')
+        self.ui.combo_addUsers_group.addItems(['Группа 1', 'Группа 2', 'Группа 3'])
 
 class OtherFunctions(object):
-    pass
+    def randGen(self, num):
+        end = []
+        sym = ascii_letters + digits
+        for i in range(num):
+            end.append(choice(sym))
+        end = ''.join(end)
+        return end
 
 class UIFunctions(object):
     GLOBAL_STATE = 0
@@ -196,11 +206,3 @@ def md5(text):
     m = hashlib.md5()
     m.update(text.encode('utf-8'))
     return m.hexdigest()
-
-def randGen():
-    end = []
-    sym = ascii_letters + digits
-    for i in range(12):
-        end.append(choice(sym))
-    end = ''.join(end)
-    return end

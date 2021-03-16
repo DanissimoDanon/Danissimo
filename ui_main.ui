@@ -1018,7 +1018,7 @@ QPushButton:pressed {
                      </property>
                      <property name="styleSheet">
                       <string notr="true">background: transparent;
-background-image: url(:/16x16/icons/16x16/logotype.png);
+background-image: url(:/16x16/icons/16x16/cil-terminal.png);
 background-position: center;
 background-repeat: no-repeat;
 </string>
@@ -1545,6 +1545,65 @@ QPushButton:pressed {
                   </property>
                  </widget>
                 </item>
+                <item>
+                 <widget class="QPushButton" name="btn_tests_page">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>70</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Segoe UI</family>
+                    <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
+	background-image: url(:/16x16/icons/16x16/cil-task.png);
+	background-position: left center;
+    background-repeat: no-repeat;
+	border: none;
+	border-left: 28px solid rgb(27, 29, 35);
+    background-color: rgb(27, 29, 35);
+    text-align: left;
+    padding-left: 45px;
+}
+QPushButton:hover {
+	background-color: rgb(33, 37, 43);
+    border-left: 28px solid rgb(33, 37, 43);
+}
+QPushButton:pressed {	
+	background-color: rgb(85, 170, 255);
+    border-left: 28px solid rgb(85, 170, 255);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Доб. пользователя</string>
+                  </property>
+                  <property name="autoExclusive">
+                   <bool>false</bool>
+                  </property>
+                  <property name="autoDefault">
+                   <bool>false</bool>
+                  </property>
+                  <property name="default">
+                   <bool>false</bool>
+                  </property>
+                  <property name="flat">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
                </layout>
               </widget>
              </item>
@@ -1688,7 +1747,7 @@ QPushButton:pressed {
                    <string notr="true">background: transparent;</string>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>1</number>
                   </property>
                   <widget class="QWidget" name="page_home">
                    <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1791,7 +1850,7 @@ border-radius: 5px;</string>
                            <number>6</number>
                           </property>
                           <item row="2" column="2">
-                           <widget class="QLineEdit" name="edit_users_name">
+                           <widget class="QLineEdit" name="edit_addUsers_fname">
                             <property name="minimumSize">
                              <size>
                               <width>0</width>
@@ -1839,7 +1898,7 @@ QLineEdit:focus {
                            </widget>
                           </item>
                           <item row="2" column="1">
-                           <widget class="QLabel" name="label_users_name">
+                           <widget class="QLabel" name="label_addUsers_fname">
                             <property name="font">
                              <font>
                               <family>Segoe UI</family>
@@ -1853,36 +1912,15 @@ QLineEdit:focus {
 </string>
                             </property>
                             <property name="text">
-                             <string>Имя пользователя:</string>
+                             <string>Имя:</string>
                             </property>
                             <property name="alignment">
                              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                             </property>
                            </widget>
                           </item>
-                          <item row="5" column="3">
-                           <widget class="QLabel" name="label_users_group">
-                            <property name="font">
-                             <font>
-                              <family>Segoe UI</family>
-                              <pointsize>10</pointsize>
-                              <weight>75</weight>
-                              <bold>true</bold>
-                             </font>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true"/>
-                            </property>
-                            <property name="text">
-                             <string>Группа:</string>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                            </property>
-                           </widget>
-                          </item>
                           <item row="2" column="3">
-                           <widget class="QLabel" name="label_users_role">
+                           <widget class="QLabel" name="label_addUsers_role">
                             <property name="font">
                              <font>
                               <family>Segoe UI</family>
@@ -1902,63 +1940,8 @@ QLineEdit:focus {
                             </property>
                            </widget>
                           </item>
-                          <item row="5" column="4">
-                           <widget class="QComboBox" name="combo_users_group">
-                            <property name="font">
-                             <font>
-                              <family>Segoe UI</family>
-                              <pointsize>9</pointsize>
-                             </font>
-                            </property>
-                            <property name="autoFillBackground">
-                             <bool>false</bool>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">QComboBox{
-	background-color: rgb(27, 29, 35);
-	border-radius: 5px;
-	border: 2px solid rgb(27, 29, 35);
-	padding: 5px;
-	padding-left: 10px;
-}
-QComboBox:hover{
-	border: 2px solid rgb(64, 71, 88);
-}
-QComboBox QAbstractItemView {
-	color: rgb(85, 170, 255);	
-	background-color: rgb(27, 29, 35);
-	padding: 10px;
-	selection-background-color: rgb(39, 44, 54);
-}</string>
-                            </property>
-                            <property name="iconSize">
-                             <size>
-                              <width>16</width>
-                              <height>16</height>
-                             </size>
-                            </property>
-                            <property name="frame">
-                             <bool>true</bool>
-                            </property>
-                            <item>
-                             <property name="text">
-                              <string>Test 1</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Test 2</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Test 3</string>
-                             </property>
-                            </item>
-                           </widget>
-                          </item>
                           <item row="2" column="4">
-                           <widget class="QComboBox" name="combo_users_role">
+                           <widget class="QComboBox" name="combo_addUsers_role">
                             <property name="minimumSize">
                              <size>
                               <width>200</width>
@@ -2018,8 +2001,136 @@ QComboBox QAbstractItemView {
                             </item>
                            </widget>
                           </item>
-                          <item row="6" column="4">
-                           <widget class="QComboBox" name="combo_users_class">
+                          <item row="5" column="2">
+                           <widget class="QPushButton" name="btn_addUsers_add">
+                            <property name="minimumSize">
+                             <size>
+                              <width>150</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Segoe UI</family>
+                              <pointsize>10</pointsize>
+                              <weight>75</weight>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QPushButton {
+	border: 2px solid rgb(52, 59, 72);
+	border-radius: 5px;	
+	background-color: rgb(52, 59, 72);
+}
+QPushButton:hover {
+	background-color: rgb(57, 65, 80);
+	border: 2px solid rgb(61, 70, 86);
+}
+QPushButton:pressed {	
+	background-color: rgb(35, 40, 49);
+	border: 2px solid rgb(43, 50, 61);
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>Добавить пользователя</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="2">
+                           <widget class="QLabel" name="label_addUsers_err">
+                            <property name="font">
+                             <font>
+                              <family>Segoe UI</family>
+                              <pointsize>10</pointsize>
+                              <weight>75</weight>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background: transparent;
+</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="2">
+                           <widget class="QLineEdit" name="edit_addUsers_lname">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="sizeIncrement">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="baseSize">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Segoe UI</family>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QLineEdit {
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(27, 29, 35);
+	padding-left: 10px;
+}
+QLineEdit:hover {
+	border: 2px solid rgb(64, 71, 88);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(91, 101, 124);
+}</string>
+                            </property>
+                            <property name="readOnly">
+                             <bool>false</bool>
+                            </property>
+                            <property name="placeholderText">
+                             <string/>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="1">
+                           <widget class="QLabel" name="label_addUsers_lname">
+                            <property name="font">
+                             <font>
+                              <family>Segoe UI</family>
+                              <pointsize>10</pointsize>
+                              <weight>75</weight>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background: transparent;
+</string>
+                            </property>
+                            <property name="text">
+                             <string>Фамилия:</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="4">
+                           <widget class="QComboBox" name="combo_addUsers_group">
                             <property name="font">
                              <font>
                               <family>Segoe UI</family>
@@ -2073,8 +2184,8 @@ QComboBox QAbstractItemView {
                             </item>
                            </widget>
                           </item>
-                          <item row="6" column="3">
-                           <widget class="QLabel" name="label_users_class">
+                          <item row="3" column="3">
+                           <widget class="QLabel" name="label_addUsers_group">
                             <property name="font">
                              <font>
                               <family>Segoe UI</family>
@@ -2084,72 +2195,13 @@ QComboBox QAbstractItemView {
                              </font>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">background: transparent;
-</string>
+                             <string notr="true"/>
                             </property>
                             <property name="text">
-                             <string>Класс:</string>
+                             <string>Группа:</string>
                             </property>
                             <property name="alignment">
                              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="5" column="2">
-                           <widget class="QPushButton" name="btn_users_addUser">
-                            <property name="minimumSize">
-                             <size>
-                              <width>150</width>
-                              <height>30</height>
-                             </size>
-                            </property>
-                            <property name="font">
-                             <font>
-                              <family>Segoe UI</family>
-                              <pointsize>10</pointsize>
-                              <weight>75</weight>
-                              <bold>true</bold>
-                             </font>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">QPushButton {
-	border: 2px solid rgb(52, 59, 72);
-	border-radius: 5px;	
-	background-color: rgb(52, 59, 72);
-}
-QPushButton:hover {
-	background-color: rgb(57, 65, 80);
-	border: 2px solid rgb(61, 70, 86);
-}
-QPushButton:pressed {	
-	background-color: rgb(35, 40, 49);
-	border: 2px solid rgb(43, 50, 61);
-}</string>
-                            </property>
-                            <property name="text">
-                             <string>Добавить пользователя</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="6" column="2">
-                           <widget class="QLabel" name="label_users_err">
-                            <property name="font">
-                             <font>
-                              <family>Segoe UI</family>
-                              <pointsize>10</pointsize>
-                              <weight>75</weight>
-                              <bold>true</bold>
-                             </font>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">background: transparent;
-</string>
-                            </property>
-                            <property name="text">
-                             <string/>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                             </property>
                            </widget>
                           </item>
@@ -2462,7 +2514,7 @@ QHeaderView::section:vertical
                           <number>0</number>
                          </property>
                          <property name="columnCount">
-                          <number>8</number>
+                          <number>7</number>
                          </property>
                          <attribute name="horizontalHeaderVisible">
                           <bool>false</bool>
@@ -2526,15 +2578,10 @@ QHeaderView::section:vertical
                            <string>Группа</string>
                           </property>
                          </column>
-                         <column>
-                          <property name="text">
-                           <string>Дисциплина</string>
-                          </property>
-                         </column>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QPushButton" name="btn_users_showTable">
+                        <widget class="QPushButton" name="btn_addUsers_showTable">
                          <property name="minimumSize">
                           <size>
                            <width>150</width>

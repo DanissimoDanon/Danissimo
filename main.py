@@ -29,6 +29,11 @@ class MainWindow(QMainWindow):
         ###==UI_START==END==###
 
         ###==CONNECT==BEGIN==###
+        self.ui.combo_addUsers_role.currentIndexChanged.connect(self.combo)
+        self.ui.combo_addUsers_group.currentIndexChanged.connect(self.combo)
+        self.ui.btn_addUsers_showTable.clicked.connect(self.adminBut)
+        self.ui.btn_addUsers_add.clicked.connect(self.adminBut)
+
         self.ui.btn_toggle_menu.clicked.connect(lambda: UIFunctions.toggleMenu(self, 220, True))
         self.ui.btn_home_page.clicked.connect(self.buttons)
         self.ui.btn_profile_page.clicked.connect(self.buttons)
@@ -42,6 +47,7 @@ class MainWindow(QMainWindow):
         self.ui.frame_toggle.hide()
         self.ui.frame_left_menu.hide()
         self.ui.btn_addUsers_page.hide()
+        self.ui.combo_addUsers_group.setEnabled(False)
         ###==HIDE==END==###
 
         ###==MOVE_FRAME==BEGIN==###
@@ -63,13 +69,17 @@ class MainWindow(QMainWindow):
         self.ui.edit_pass.setText('admin')
         self.ui.btn_login.click()
         ###==DEBUG==END==###
-        # DataBase.insertUser(self, login, self.ui.edit_pass.text(), fname, lname, clas, group, role)
 
     def buttons(self):
         btn = self.sender()
         if btn.objectName() == 'btn_login' and (self.ui.edit_login.text() and self.ui.edit_pass.text()):
-            cur.execute("SELECT * FROM users WHERE login=? AND pass=?;",
-                        (self.ui.edit_login.text(), md5(self.ui.edit_pass.text())))
+            cur.execute("SELECT pass FROM users WHERE login='{}';".format(self.ui.edit_login.text()))
+            if len(cur.fetchone()[0]) == 12:
+                cur.execute("SELECT * FROM users WHERE login=? AND pass=?;",
+                            (self.ui.edit_login.text(), self.ui.edit_pass.text()))
+            else:
+                cur.execute("SELECT * FROM users WHERE login=? AND pass=?;",
+                            (self.ui.edit_login.text(), md5(self.ui.edit_pass.text())))
             self.user = cur.fetchone()
             if self.user is not None:
                 self.user = array(self.user)
@@ -111,14 +121,27 @@ class MainWindow(QMainWindow):
             UIFunctions.labelPage(self, 'Профиль')
             btn.setStyleSheet(UIFunctions.selectMenu(self, btn.styleSheet()))
 
+    def combo(self):
+        cmb = self.sender()
+        if cmb.objectName() == 'combo_addUsers_role':
+            if self.ui.combo_addUsers_role.currentIndex() == 4:
+                self.ui.combo_addUsers_group.setEnabled(True)
+            else:
+                self.ui.combo_addUsers_group.setEnabled(False)
+                self.ui.combo_addUsers_group.setCurrentIndex(0)
+
     def profileBut(self):
         btn = self.sender()
         if btn.objectName() == 'btn_profile_resetPass':
             passw = self.ui.edit_profile_pass.text()
             newPassw = self.ui.edit_profile_newPass.text()
-            if md5(passw) == self.user[4] and passw != newPassw and (passw and newPassw):
-                cur.execute("UPDATE users SET pass=? WHERE id=?", (md5(newPassw), self.user[0]))
-                conn.commit()
+            print(bool(self.ui.edit_profile_newPass.text()))
+            if passw != newPassw and (passw and newPassw):
+                if (len(self.user[4]) == 12 and passw == self.user[4]) or (len(self.user[4]) == 32 and md5(passw) == self.user[4]):
+                    cur.execute("UPDATE users SET pass=? WHERE id=?", (md5(newPassw), self.user[0]))
+                    conn.commit()
+            else:
+                print('Пусто')
 
         if btn.objectName() == 'btn_profile_exit':
             UIFunctions.labelDescription(self, 'Требуется авторизация')
@@ -130,27 +153,25 @@ class MainWindow(QMainWindow):
 
     def adminBut(self):
         btn = self.sender()
-        if btn.objectName() == 'btn_users_addUser' and self.ui.edit_users_name.text():
-            try:
-                self.ui.label_users_err.clear()
-                fname = self.ui.edit_users_name.text().split(' ')[0]
-                lname = self.ui.edit_users_name.text().split(' ')[1]
-                login = randGen()
-                passw = randGen()
-                print(self.ui.combo_users_role.itemText(self.ui.combo_users_role.currentIndex()))
-                if self.ui.combo_users_role.currentIndex():
-                    pass
-                else:
-                    self.ui.label_users_err.setText('Имя указано не верно, пример (Иван Иванов).')
-                # DataBase.insertUser(self, login, passw, fname, lname,
-                #                     self.ui.combo_users_role.itemText(self.ui.combo_users_role.currentIndex()),
-                #                     )
-            except IndexError:
-                self.ui.label_users_err.setText('Имя указано не верно, пример (Иван Иванов).')
-        elif btn.objectName() == 'btn_users_addUser' and not self.ui.edit_users_name.text():
-            self.ui.label_users_err.setText('Имя не может быть пустым.')
+        if btn.objectName() == 'btn_addUsers_add' and (self.ui.edit_addUsers_fname.text() and self.ui.edit_addUsers_lname.text()):
+            self.ui.label_addUsers_err.clear()
+            fname = self.ui.edit_addUsers_fname.text().capitalize().replace(' ', '')
+            lname = self.ui.edit_addUsers_lname.text().capitalize().replace(' ', '')
+            login = OtherFunctions.randGen(self, 12)
+            passw = OtherFunctions.randGen(self, 12)
+            if self.ui.combo_addUsers_role.currentIndex():
+                DataBase.insertUser(self, login, passw, fname, lname,
+                                    self.ui.combo_addUsers_role.itemText(self.ui.combo_addUsers_role.currentIndex()))
+                AdminFunctions.insertTable(self)
+                self.ui.edit_addUsers_fname.setText('')
+                self.ui.edit_addUsers_lname.setText('')
+                self.ui.label_addUsers_err.setText('Успешно добавлено.')
+            else:
+                self.ui.label_addUsers_err.setText('Выберите роль.')
+        elif btn.objectName() == 'btn_addUsers_add':
+            self.ui.label_addUsers_err.setText('Поле Имя или Фамилия не может быть пустым.')
 
-        if btn.objectName() == 'btn_users_showTable':
+        if btn.objectName() == 'btn_addUsers_showTable':
             if btn.text() == 'Увеличить таблицу...':
                 self.ui.grid_5.hide()
                 btn.setText('Уменьшить таблицу...')
